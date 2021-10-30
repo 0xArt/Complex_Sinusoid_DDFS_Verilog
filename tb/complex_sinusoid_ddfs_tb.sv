@@ -108,7 +108,7 @@ module complex_sinusoid_ddfs_tb(
     */
     wire signed [31:0] heterodyne_real;
     wire signed [31:0] heterodyne_imag;
-    complex_multiplier complex_multiplier_hetrodyne_inst(
+    complex_multiplier complex_multiplier_heterodyne_inst(
          .i_clk(clk)
         ,.i_rst(rst)
         ,.i_real_h(real_signal_a)
