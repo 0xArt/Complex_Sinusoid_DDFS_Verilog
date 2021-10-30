@@ -11,7 +11,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// piplined 2 input 1 output complex digital multiplier
+// pipelined 2 input 1 output complex digital multiplier
 // Dependencies: 
 // 
 // Revision:
