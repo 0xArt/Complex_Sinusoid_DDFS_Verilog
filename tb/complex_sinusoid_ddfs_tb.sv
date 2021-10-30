@@ -92,7 +92,7 @@ module complex_sinusoid_ddfs_tb(
      Amplitude Modulation
     */
     wire signed [31:0] am_signal;
-    complex_multiplier complex_multiplier_a_inst(
+    complex_multiplier complex_multiplier_am_mod_inst(
          .i_clk(clk)
         ,.i_rst(rst)
         ,.i_real_h(real_signal_a)
@@ -103,8 +103,21 @@ module complex_sinusoid_ddfs_tb(
         ,.o_imag()
     );
     
-    
-
+    /*
+        heterodyne Signal
+    */
+    wire signed [31:0] heterodyne_real;
+    wire signed [31:0] heterodyne_imag;
+    complex_multiplier complex_multiplier_hetrodyne_inst(
+         .i_clk(clk)
+        ,.i_rst(rst)
+        ,.i_real_h(real_signal_a)
+        ,.i_imag_h(imag_signal_a)
+        ,.i_real_y(real_signal_b)
+        ,.i_imag_y(imag_signal_b)
+        ,.o_real(heterodyne_real)
+        ,.o_imag(heterodyne_imag)
+    );
     
     
 

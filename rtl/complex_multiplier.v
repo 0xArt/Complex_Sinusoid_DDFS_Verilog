@@ -57,7 +57,7 @@ module complex_multiplier#(parameter INPUT_DATA_WIDTH = 16)
             ac <= i_real_h * i_real_y;
             ad <= i_real_h * i_imag_y;
             cb <= i_real_y * i_imag_h;
-            bd <= i_real_h * i_imag_y;
+            bd <= i_imag_h * i_imag_y;
             o_real <= ac - bd;
             o_imag <= ad + cb;
         end
