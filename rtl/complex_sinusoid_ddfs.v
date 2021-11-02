@@ -27,6 +27,7 @@ module complex_sinusoid_ddfs#(parameter ROM_DEPTH = 32768, ROM_WIDTH = 16)
         input wire                           i_clk,
         input wire                           i_rst,
         input wire        [31:0]             i_freq_control, //freq will  increase as i_freq_control increases
+        input wire        [1:0]              i_invert_out,
         output reg signed [ROM_WIDTH-1:0]    o_real = 0,
         output reg signed [ROM_WIDTH-1:0]    o_imag = 0
 );
@@ -48,11 +49,9 @@ module complex_sinusoid_ddfs#(parameter ROM_DEPTH = 32768, ROM_WIDTH = 16)
     wire [ROM_WIDTH-1:0] cos_out;
     wire [1:0] sin_quadrant;
     wire [1:0] cos_quadrant;
-    wire [1:0] invert;
-    wire [1:0] reverse;
     
-    assign sin_quadrant = index[16:15];
-    assign cos_quadrant = sin_quadrant + 1'b1;
+    assign sin_quadrant = (i_invert_out[0]) ?  (index[16:15] + 2'd2) : index[16:15];
+    assign cos_quadrant = (i_invert_out[1]) ?  (index[16:15] + 2'd3) : (index[16:15] + 1'b1);
     //upper 17 bits of accumulator are used indexing
     assign index = accumulator[31:15];
     //if index[15] is set we want to read backwards

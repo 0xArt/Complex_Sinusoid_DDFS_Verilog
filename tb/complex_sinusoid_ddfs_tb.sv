@@ -71,6 +71,7 @@ module complex_sinusoid_ddfs_tb(
          .i_clk(clk)
         ,.i_rst(rst)
         ,.i_freq_control(freq_control_a)
+        ,.i_invert_out(2'd0)
         ,.o_real(real_signal_a)
         ,.o_imag(imag_signal_a)
     );
@@ -80,6 +81,7 @@ module complex_sinusoid_ddfs_tb(
          .i_clk(clk)
         ,.i_rst(rst)
         ,.i_freq_control(freq_control_b)
+        ,.i_invert_out(2'd0)
         ,.o_real(real_signal_b)
         ,.o_imag(imag_signal_b)
     );
